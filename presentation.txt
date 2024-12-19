@@ -1,0 +1,59 @@
+Use http instead of https.
+
+1. getProducts
+METHOD: GET
+URL: http://localhost:8000/getProducts
+
+2. login
+METHOD: POST
+URL: http://localhost:8000/validateLogin
+FORM:
+username : admim
+password : admin
+
+3. get product details
+METHOD: GET
+URL: http://localhost:8000/getProductDetails/1
+
+4. validate transaction
+METHOD: POST
+URL: http://localhost:8000/validateTransaction
+FORM:
+username : admim
+password : admin
+productID : 1
+
+if wrong username / password: login failed or user not found
+if missing productID: product not found
+
+-> can fail (20% chance)
+
+5. search products
+METHOD: GET
+URL: http://localhost:8000/searchProducts/apple
+apple can be substituted by any other characters (no space)
+
+You cannot leave the searchTerm blank!
+
+6. filter products
+METHOD: GET
+URL: http://localhost:8000/filterProducts/Food
+Food can be replaced by Electronics, Entertainment, Health or Fashion
+
+7. Retrieve transaction history
+METHOD: POST
+URL: http://localhost:8000/getTransactionHistory
+FORM:
+username : admim
+password : admin
+
+8. new user
+METHOD: POST
+URL: http://localhost:8000/newUser
+FORM:
+username: new1
+email: new1@m.com
+password: Aa1!abcd
+confirmPassword: Aa1!abcd
+
+username has to be unique, password has to be strong, email has to be 'valid'

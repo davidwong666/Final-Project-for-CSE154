@@ -1,0 +1,728 @@
+/*
+  This file contains all the styles for the ecommerce website ShopSmart.
+  It is divided into sections for different views and components.
+  Including the general styles for the website, products, login page and profile page, etc.
+*/
+
+/* general */
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  top: 0px;
+  left: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-container h1 {
+  color: white;
+  font-size: 26px;
+  margin: 0;
+  font-weight: 500;
+  font-family: "Dancing Script", serif;
+}
+
+header img {
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+}
+
+header button {
+  border-radius: 5px;
+  padding: 8px 16px;
+  margin-right: 10px;
+}
+
+header input {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 400px;
+  margin-right: 10px;
+}
+
+/* main content */
+body {
+  padding-top: 50px;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: 10px;
+}
+
+main section {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+/* login */
+#login-view:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  padding: 20px;
+}
+
+#login-form {
+  background-color: white;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+#login-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+#login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#login-form input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+#login-msg {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.correct {
+  color: #4CAF50;
+}
+
+.incorrect {
+  color: #ff3333;
+}
+
+#login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#login-btn:hover {
+  background-color: #45a049;
+}
+
+/* product */
+#product-view:not(.hidden) {
+  display: flex;
+  padding: 12px;
+}
+
+#product-view > section:first-child {
+  width: 100%;
+  position: sticky;
+  top: 50px;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  z-index: 100;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#products-container:not(.hidden) {
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.product:not(.hidden) {
+  border-radius: 8px;
+}
+
+.product > article > p {
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.product article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.product.selected:not(.hidden) {
+  border: 1px solid #333;
+  background-color: #f0f0f0;
+}
+
+.product-name {
+  font-size: 16px;
+  font-family: "Merriweather", serif;
+  font-style: italic;
+  margin: 10px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#product-confirm:not(.hidden) {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 1001; /* Above the page -> like a pop up menu */
+}
+
+#product-confirm h1 {
+  font-size: 24px;
+  font-family: "Merriweather", serif;
+  color: #333;
+  margin: 0 0 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+#product-confirm p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+#product-confirm p:last-of-type {
+  margin-bottom: 20px;
+}
+
+#product-confirm p strong {
+  color: red;
+  font-weight: 700;
+}
+
+#product-confirm button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: calc(50% - 10px);  /* Equal width buttons with a small gap */
+}
+
+#product-confirm #confirm-btn {
+  background-color: #2c7be5;
+  color: white;
+  border: none;
+  float: right;
+}
+
+#product-confirm #confirm-btn:hover {
+  background-color: #1a68d1;
+}
+
+#product-confirm #cancel-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #333;
+  float: left;
+}
+
+#product-confirm #cancel-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+#product-submit:not(.hidden) {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+#product-submit h1 {
+  font-size: 28px;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+
+#submit-btn {
+  width: 100%;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  margin-top: 30px;
+}
+
+#submit-btn:hover {
+  background-color: #3367d6;
+}
+
+.cozy {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 10px;
+  margin: 10px;
+}
+
+.compact {
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 5px;
+  margin: 5px;
+}
+
+.grid .product:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grid .product img {
+  width: 200px;
+  height: 100px;
+  object-fit: contain; /* Maintains the original aspect ratio */
+  margin: 10px;
+}
+
+.list .product:not(.hidden) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+  height: 150px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list .product img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.grid, .list {
+  margin-top: 10px;
+}
+
+#filters {
+  display: flex;
+  align-items: center;
+  min-width: fit-content;
+  padding: 0 10px;
+}
+
+#filters ul {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#filters button {
+  width: 130px;
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+#filters button:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+#filters button.selected {
+  border: 1px solid #333;
+  background-color: #333;
+  color: white;
+}
+
+#layout-btn {
+  margin-left: auto;
+  min-width: 100px;
+  width: fit-content;
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#layout-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+#product-detail:not(.hidden) {
+  width: 600px;
+  margin: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  scroll-margin-top: 70px;
+}
+
+#product-detail img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+#product-detail h1 {
+  font-size: 24px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+#product-detail button {
+  background-color: #2c7be5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#product-detail button:hover {
+  background-color: #1a68d1;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 1001;
+}
+
+.popup-message {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.popup-btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  background-color: #2c7be5;
+  color: white;
+  border: none;
+}
+
+.popup-btn:hover {
+  background-color: #1a68d1;
+}
+
+/* profile */
+#profile-view:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#profile-view h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+#profile-view h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.transaction {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.transaction img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.transaction p {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.transaction p:last-child {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.transaction:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+#logout-btn {
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#logout-btn:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#logout-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* new user */
+#new-user-view:not(.hidden) {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 36px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#user-creation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#user-creation-form label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+#user-creation-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#user-creation-form input:focus {
+  outline: none;
+  border-color: #2c73c5;
+  box-shadow: 0 0 0 3px rgba(39, 99, 167, 0.1);
+}
+
+#user-creation-form input:hover {
+  border-color: #b3b3b3;
+}
+
+#create-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#create-btn:hover {
+  background-color: #357abd;
+}
+
+#create-btn:active {
+  transform: translateY(1px);
+}
+
+#new-user-msgs {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+#new-user-msgs p {
+  font-size: 14px;
+  margin: 10px;
+}
+
+/* error */
+#error-view:not(.hidden) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+}
+
+#error-view h1 {
+  font-size: 40px;
+  color: #dc3545;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#error-view p {
+  font-size: 20px;
+  color: #6c757d;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+#error-view button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 20px;
+}
+
+/* footer */
+footer {
+  background-color: #333;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+
+footer, footer a {
+  color: white;
+}
+
+footer p {
+  margin: 0;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}

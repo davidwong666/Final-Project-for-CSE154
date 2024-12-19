@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<!--
+  This file is the main and only page of the ecommerce website.
+  It contains the header, main content, and footer of the website.
+  For the main content, it contains the product view, login view, profile view, and error view.
+  The product view contains the filters, layout button, products container, product detail,
+  product confirm, and product submit.
+  The login view contains the login form.
+  The profile view contains the username, logout button, and transaction history.
+  The error view contains the error message.
+  The footer contains the credit to the source of the images.
+-->
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>ShopSmart</title>
+  </head>
+
+  <body>
+
+    <header>
+      <section class="logo-container">
+        <img id="logo" src="imgs/logo.png" alt="logo">
+        <h1>ShopSmart</h1>
+      </section>
+      <section>
+        <input id="search-text" type="text" placeholder="Search..">
+        <button id="search-btn" disabled>Search</button>
+        <button id="profile-btn">Login</button>
+        <button id="new-user-btn">New User</button>
+      </section>
+    </header>
+
+    <main>
+      <section id="product-view">
+        <article id="filters">
+          <ul>
+            <li><button>Food</button></li>
+            <li><button>Electronics</button></li>
+            <li><button>Entertainment</button></li>
+            <li><button>Health</button></li>
+            <li><button>Fashion</button></li>
+          </ul>
+        </article>
+        <button id="layout-btn">Grid View</button>
+        <section id="products-container" class="grid"></section>
+        <article id="product-detail" class="hidden"></article>
+        <article id="product-confirm" class="hidden">
+          <h1>Confirming Your Purchase</h1>
+          <p>You <strong>CANNOT</strong> undo this action once you confirmed your purchase!</p>
+          <button id="cancel-btn">Cancel</button>
+          <button id="confirm-btn">Confirm</button>
+        </article>
+        <article id="product-submit" class="hidden">
+          <h1>Checkout</h1>
+          <button id="submit-btn">Purchase</button>
+        </article>
+        <article id="popup-view" class="popup hidden">
+          <p id="popup-message" class="popup-message"></p>
+          <button id="popup-btn" class="popup-btn">Done!</button>
+        </article>
+      </section>
+
+      <section id="login-view" class="hidden">
+        <form id="login-form">
+          <label for="username">Username:</label>
+          <input id="username" type="text" name="username" required>
+          <label for="password">Password:</label>
+          <input id="password" type="password" name="password" required>
+          <p id="login-msg"></p>
+          <button type="submit" id="login-btn">Login</button>
+        </form>
+      </section>
+
+      <section id="profile-view" class="hidden">
+        <h1>Username</h1>
+        <button id="logout-btn">Logout</button>
+        <h2>Transaction History</h2>
+        <article id="transaction-history"></article>
+      </section>
+
+      <section id="new-user-view" class="hidden">
+        <form id="user-creation-form">
+          <label for="new-username">Username:</label>
+          <input id="new-username" type="text" name="username" required>
+          <label for="email">Email:</label>
+          <input id="email" type="text" name="email" required>
+          <label for="new-password">Password:</label>
+          <input id="new-password" type="password" name="password" required>
+          <label for="confirm-password">Confirm Password:</label>
+          <input id="confirm-password" type="password" name="confirmPassword" required>
+          <button type="submit" id="create-btn">Create</button>
+        </form>
+        <section>
+          <p>Strong password is required: </p>
+          <ul>
+            <li>At least 8 characters</li>
+            <li>At least 1 uppercase letter</li>
+            <li>At least 1 lowercase letter</li>
+            <li>At least 1 number</li>
+          </ul>
+        </section>
+        <section id="new-user-msgs"></section>
+      </section>
+
+      <section id="error-view" class="hidden"></section>
+    </main>
+
+    <footer>
+      <p>All images are from <a href="https://www.flaticon.com/">Flaticon</a></p>
+    </footer>
+  </body>
+</html>
